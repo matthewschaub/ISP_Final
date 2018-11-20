@@ -75,8 +75,21 @@ body {
 </div>
 
 <div style="padding-left:16px">
-  <h2>Responsive Topnav Example</h2>
-  <p>Resize the browser window to see how it works.</p>
+  <h2>Create a Test</h2>
+  <form>
+  	Test Name: <input type="text" name="testName"> <br><br>
+  	<div id="questions">
+  	Question 1: <input type="text" name="q1"> <br>
+  	Answer Option <input type="text" name="q1"> <br>
+  	Answer Option <input type="text" name="q1"> <br>
+  	Answer Option <input type="text" name="q1"> <br>
+  	Answer Option <input type="text" name="q1"> <br>
+  	Correct Answer <input type="text" name="q1" size = "1"> <br><br>
+  	</div>
+  	<button id ='remove' onclick="addQuestion()">Add Question</button>
+  </form>
+  
+  
 </div>
 
 <script>
@@ -87,6 +100,22 @@ function myFunction() {
     } else {
         x.className = "topnav";
     }
+}
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+function addQuestion() {
+	$('#remove').remove();
+    var x = 'Question 1: <input type="text" name="q1"> <br>' +
+  	'Answer Option <input type="text" name="q1"> <br>' +
+  	'Answer Option <input type="text" name="q1"> <br>' +
+  	'Answer Option <input type="text" name="q1"> <br>' +
+  	'Answer Option <input type="text" name="q1"> <br>' +
+  	'Correct Answer <input type="text" name="q1" size = "1"> <br><br>';
+    var y = "<button id ='remove' onclick='addQuestion()'>Add Question</button>";
+
+    $("#questions").append(x, y);     // Append new elements
 }
 </script>
 
