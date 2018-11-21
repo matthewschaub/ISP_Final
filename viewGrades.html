@@ -15,6 +15,46 @@
     <i class="fa fa-bars"></i>
   </a>
 </div>
-
+    <form action = "db-starter.php"
+          method = "post">
+      <h2>View Grades</h2>
+      <table>
+          <tr>
+            <th> Student ID</th>
+            <th> variable </th>
+            <th> variable </th>
+            <th> variable </th>
+            <th> variable </th>
+          </tr>
+          <tr>
+            <td><input type = "text"  name = "id" size = "6" value = "demo" /></td>
+            <td><input type = "text"  name = "type" size = "16" value = "" /></td>
+            <td><input type = "text"  name = "miles" size = "8" value = "" /></td>
+            <td><input type = "text"  name = "year" size = "4" value = "" /></td>
+            <td><input type = "text"  name = "state" size = "4" value = "" /></td>
+          </tr>
+      </table>
+      <p />
+<h3> Action </h3>
+      <p>
+        <input type = "radio"  name = "action"  value = "display" checked = "checked" />
+		Display all records <br />
+        <input type = "radio"  name = "action"  value = "insert" />
+		Add a new record <br />
+        <input type = "radio"  name = "action"  value = "update" />
+		Update an existing record <br />
+        <input type = "radio"  name = "action"  value = "delete" />
+		Delete an existing record <br />
+        <input type = "radio"  name = "action"  value = "user" />
+		Enter your own SQL statement below <br />
+        <input type = "text";  name = "statement" size = "40" value = "select * from Corvettes" id = "in" /> <br /><br />
+        <input type = "reset"  value = "Reset Form" />
+        <input type = "submit"  value = "Excute SQL" />
+<!--
+        <button type="button" onclick="show()">Show SQL</button><br />
+        <span id = "out" style="color:red"></span> <br /><br />
+-->
+        </p>
+    </form>
 </body>
 </html>
