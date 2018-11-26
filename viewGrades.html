@@ -1,60 +1,51 @@
+<!-- Joseph Santucci, Matthew Schaub
+     Internet Systems Programming Term Project
+     November 27, 2018 -->
+
+<!-- View Grades page -->
+
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title></title>
-</head>
-<body>
-<div id="title"><h1>TITLE</h1></div>
-<div class="topnav" id="myTopnav">
-  <a href="main.html" >Create a Test</a>
-  <a href="takeTest.html">Take Test</a>
-  <a href="viewGrades.html" class="active">View Grades</a>
-  <a href="uploadDoc.html">Upload Documents</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
-    <form action = "db-starter.php"
-          method = "post">
-      <h2>View Grades</h2>
-      <table>
-          <tr>
-            <th> Student ID</th>
-            <th> variable </th>
-            <th> variable </th>
-            <th> variable </th>
-            <th> variable </th>
-          </tr>
-          <tr>
-            <td><input type = "text"  name = "id" size = "6" value = "demo" /></td>
-            <td><input type = "text"  name = "type" size = "16" value = "" /></td>
-            <td><input type = "text"  name = "miles" size = "8" value = "" /></td>
-            <td><input type = "text"  name = "year" size = "4" value = "" /></td>
-            <td><input type = "text"  name = "state" size = "4" value = "" /></td>
-          </tr>
-      </table>
-      <p />
-<h3> Action </h3>
-      <p>
-        <input type = "radio"  name = "action"  value = "display" checked = "checked" />
-		Display all records <br />
-        <input type = "radio"  name = "action"  value = "insert" />
-		Add a new record <br />
-        <input type = "radio"  name = "action"  value = "update" />
-		Update an existing record <br />
-        <input type = "radio"  name = "action"  value = "delete" />
-		Delete an existing record <br />
-        <input type = "radio"  name = "action"  value = "user" />
-		Enter your own SQL statement below <br />
-        <input type = "text";  name = "statement" size = "40" value = "select * from Corvettes" id = "in" /> <br /><br />
-        <input type = "reset"  value = "Reset Form" />
-        <input type = "submit"  value = "Excute SQL" />
-<!--
-        <button type="button" onclick="show()">Show SQL</button><br />
-        <span id = "out" style="color:red"></span> <br /><br />
--->
-        </p>
-    </form>
-</body>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title> ISP Term Project</title>
+	</head>
+	<body>
+		<div id="title"> <h1 align="center"> View Grades </h1> </div>
+		<div class="topnav" id="myTopnav" align="center">
+			<a href="prj.html"> Home </a>
+		  <a href="main.html" >Create a Test</a>
+		  <a href="takeTest.html">Take Test</a>
+		  <a href="viewGrades.html" class="active">View Grades</a>
+		  <a href="uploadDoc.html">Upload Documents</a>
+		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		    <i class="fa fa-bars"></i>
+		  </a>
+		</div>
+	    <form action = "db_viewGrades.jsp" method = "post">
+	      <h2 align="center">View Grades</h2>
+	      <table align="center">
+	          <tr>
+	            <td style = "margin:50px; padding:10px"><label><b> Student ID: </b></label><input type = "text"  name = "id" size = "20" placeholder="1234567" /></td>
+							<td style = "margin:50px; padding:10px"><label><b> Student Name: </b></label><input type = "text"  name = "name" size = "20" placeholder="John Smith" /></td>
+	            <td style = "margin:50px; padding:10px"><label><b> Quiz: </b></label><input type = "text"  name = "quiz" size = "20" placeholder = "Quiz1" /></td>
+	            <td style = "margin:50px; padding:10px"><label><b> Grade: </b></label><input type = "text"  name = "grade" size = "10" placeholder = "100" /></td>
+	          </tr>
+	      </table>
+				<h3 align="center"> Action </h3>
+				<!-- FINISH LATER
+				<p style= "margin: 20px; margin-right:200px"> Display all grades: </p>
+				-->
+	      <p align="center">
+	        <input type = "radio"  name = "action"  value = "display" checked = "checked" style = "margin:20px; margin-right:5px"/> Display all grades
+	        <input type = "radio"  name = "action"  value = "insert" style = "margin:20px; margin-right:5px"/> Add a new student
+	        <input type = "radio"  name = "action"  value = "update" style = "margin:20px; margin-right:5px"/> Update an existing student grade
+	        <input type = "radio"  name = "action"  value = "delete" style = "margin:20px; margin-right:5px"/> Delete an existing student </br>
+					<input type = "reset"  value = "Reset Form" style = "margin:20px;margin-top:10px"/>
+	        <input type = "submit"  value = "Excute SQL" style = "margin:20px;margin-top:10px"/>
+	        </p>
+
+
+	    </form>
+	</body>
 </html>
