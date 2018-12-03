@@ -20,12 +20,14 @@
     <%@page import="java.sql.*"%>  
     <%
           String qs;
-          String testName = request.getParameter("TestNames");
+          String testName = request.getParameter("test");
           Statement stmt;
           Connection con;
           ResultSet rs; 
           String error;
-          int q = 1; 
+          int q = 0;
+          int correct = 0; 
+
 
           Class.forName("com.mysql.jdbc.Driver").newInstance();
           try {
@@ -34,18 +36,15 @@
 
             qs="select * from " + testName;
             rs=stmt.executeQuery(qs);
-
-            out.println("<form action = 'postGrades.jsp' method = 'post'>");
+            
             while(rs.next())
             {
-              out.println(String.valueOf(q) + ": " + rs.getString("Question") + "<br>" + "<input type='radio' name='q"+ String.valueOf(q)+"' value='A' checked>"+ rs.getString("AnswerA")+ "<br><input type='radio' name='q"+ String.valueOf(q)+"' value='B'>"+ rs.getString("AnswerB")+ "<br><input type='radio' name='q"+ String.valueOf(q)+"' value='C'>" + rs.getString("AnswerC") + "<br><input type='radio' name='q"+ String.valueOf(q)+"' value='D'>" + rs.getString("AnswerD") + "<br>");
-              ++q;
+              q += 1; 
+              String question = "q" + String.valueOf(q);
+              if(rs.getString("Answer").equals(request.getParameter(question)))
+                correct += 1;
             }
-            out.println("<input type='hidden' name='test' value ='" + testName + "'>");
-            out.println("<input type='submit' value = 'submit'>");
-            out.println("</form>");
-
-
+            out.println("Your score is: " + ((correct/q) * 100) + "%");
           }
           catch (Exception e) {
           out.println(e.toString());  // Error message to display
