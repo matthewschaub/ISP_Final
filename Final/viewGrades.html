@@ -1,0 +1,51 @@
+<!-- Joseph Santucci, Matthew Schaub
+     Internet Systems Programming Term Project
+     November 27, 2018 -->
+
+<!-- View Grades page -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title> ISP Term Project</title>
+	</head>
+	<body>
+		<div id="title"> <h1 align="center"> View Grades </h1> </div>
+		<div class="topnav" id="myTopnav" align="center">
+			<a href="prj.html"> Home </a>
+		  <a href="main.html" >Create a Test</a>
+		  <a href="takeTest.html">Take Test</a>
+		  <a href="viewGrades.html" class="active">View Grades</a>
+		  <a href="uploadDoc.html">Upload Documents</a>
+		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+		    <i class="fa fa-bars"></i>
+		  </a>
+		</div>
+	    <form action = "db-viewGrades.jsp" method = "post">
+	      <h2 align="center">View Grades</h2>
+	      <table align="center">
+	          <tr>
+	            <td style = "margin:50px; padding:10px"><label><b> Student ID: </b></label><input type = "text"  name = "id" size = "20" placeholder="1234567" /></td>
+							<td style = "margin:50px; padding:10px"><label><b> Student Name: </b></label><input type = "text"  name = "name" size = "20" placeholder="John Smith" /></td>
+	            <td style = "margin:50px; padding:10px"><label><b> Quiz: </b></label><input type = "text"  name = "quiz" size = "20" placeholder = "Quiz1" /></td>
+	            <td style = "margin:50px; padding:10px"><label><b> Grade: </b></label><input type = "text"  name = "grade" size = "10" placeholder = "100" /></td>
+	          </tr>
+	      </table>
+				<h3 align="center"> Action </h3>
+				<!-- FINISH LATER
+				<p style= "margin: 20px; margin-right:200px"> Display all grades: </p>
+				-->
+	      <p align="center">
+	        <input type = "radio"  name = "action"  value = "display" checked = "checked" style = "margin:20px; margin-right:5px"/> Display all grades
+	        <input type = "radio"  name = "action"  value = "insert" style = "margin:20px; margin-right:5px"/> Add a new student
+	        <input type = "radio"  name = "action"  value = "update" style = "margin:20px; margin-right:5px"/> Update an existing student grade
+	        <input type = "radio"  name = "action"  value = "delete" style = "margin:20px; margin-right:5px"/> Delete an existing student </br>
+					<input type = "reset"  value = "Reset Form" style = "margin:20px;margin-top:10px"/>
+	        <input type = "submit"  value = "Excute SQL" style = "margin:20px;margin-top:10px"/>
+	        </p>
+
+
+	    </form>
+	</body>
+</html>

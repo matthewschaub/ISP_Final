@@ -1,0 +1,73 @@
+<!-- Joseph Santucci, Matthew Schaub
+     Internet Systems Programming Term Project
+     November 27, 2018 -->
+
+<!-- Create a Test page -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> ISP Term Project </title>
+  </head>
+  <body>
+    <div id="title"> <h1 align="center"> Create a Test </h1> </div>
+    <div class="topnav" id="myTopnav">
+      <a href="prj.html"> Home </a>
+      <a href="main.html" class="active"> Create a Test </a>
+      <a href="takeTest.html"> Take Test </a>
+      <a href="viewGrades.html"> View Grades </a>
+      <a href="uploadDoc.html"> Upload Documents </a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"> </i>
+      </a>
+    </div>
+
+    <div style="padding-left:16px">
+      <h2>Create a Test</h2>
+      <form>
+        	<label style = "margin:10px; padding:10px"> Test Name: </label> <input type="text" name="testName"> <br><br>
+        	<div id="questions">
+        	   <label style = "margin:10px; padding:10px"> Question: </label> <input type="text" name="question" style = "margin:10px; padding:2px"> <br>
+        	   <label style = "margin:10px; padding:10px"> Answer Option A </label> <input type="text" name="qA" style = "margin:10px; padding:2px"> <br>
+        	   <label style = "margin:10px; padding:10px"> Answer Option B </label> <input type="text" name="qB" style = "margin:10px; padding:2px"> <br>
+        	   <label style = "margin:10px; padding:10px"> Answer Option C </label> <input type="text" name="qC" style = "margin:10px; padding:2px"> <br>
+        	   <label style = "margin:10px; padding:10px"> Answer Option D </label> <input type="text" name="qD" style = "margin:10px; padding:2px"> <br>
+        	   <label style = "margin:10px; padding:10px"> Correct Answer (Enter Letter) </label> <input type="text" name="answer" size = "1" style = "margin:10px; padding:2px"> <br><br>
+        	</div>
+        	<button id ='remove' onclick="addQuestion()">Add Question</button>
+      </form>
+    </div>
+
+    <script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    function addQuestion() {
+    	$('#remove').remove();
+        var x = '<label style = "margin:10px; padding:10px"> Question: </label> <input type="text" name="question" style = "margin:10px; padding:2px"> <br>'+
+        '<label style = "margin:10px; padding:10px"> Answer Option A </label> <input type="text" name="qA" style = "margin:10px; padding:2px"> <br>'+
+        '<label style = "margin:10px; padding:10px"> Answer Option B </label> <input type="text" name="qB" style = "margin:10px; padding:2px"> <br>'+
+        '<label style = "margin:10px; padding:10px"> Answer Option C </label> <input type="text" name="qC" style = "margin:10px; padding:2px"> <br>'+
+        '<label style = "margin:10px; padding:10px"> Answer Option D </label> <input type="text" name="qD" style = "margin:10px; padding:2px"> <br>'+
+        '<label style = "margin:10px; padding:10px"> Correct Answer (Enter Letter) </label> <input type="text" name="answer" size = "1" style = "margin:10px; padding:2px"> <br><br>';
+
+        var y = "<button id ='remove' onclick='addQuestion()'>Add Question</button>";
+
+        $("#questions").append(x, y);     // Append new elements
+    }
+    </script>
+  </body>
+</html>
