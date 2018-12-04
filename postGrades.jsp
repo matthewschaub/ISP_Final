@@ -9,9 +9,9 @@
     <div class="topnav" id="myTopnav">
       <a href="prj.html"> Home </a>
       <a href="main.html">Create a Test</a>
-      <a href="takeTest.html"  class="active">Take Test</a>
+      <a href="selectTest.jsp"  class="active">Take Test</a>
       <a href="viewGrades.html">View Grades</a>
-      <a href="uploadDoc.html">Upload Documents</a>
+      <%-- <a href="uploadDoc.html">Upload Documents</a> --%>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
