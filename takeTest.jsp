@@ -9,23 +9,25 @@
     <div class="topnav" id="myTopnav">
       <a href="prj.html"> Home </a>
       <a href="main.html">Create a Test</a>
-      <a href="takeTest.html">Take Test</a>
+      <a href="takeTest.html" class="active">Take Test</a>
       <a href="viewGrades.html">View Grades</a>
-      <a href="uploadDoc.html" class="active">Upload Documents</a>
+      <a href="uploadDoc.html">Upload Documents</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
+    <p>Use the radio buttons to select your answer to each question</p>
     <p>
-    <%@page import="java.sql.*"%>  
+    <%@page import="java.sql.*"%>
     <%
           String qs;
           String testName = request.getParameter("TestNames");
+          String studentid = request.getParameter("id");
           Statement stmt;
           Connection con;
-          ResultSet rs; 
+          ResultSet rs;
           String error;
-          int q = 1; 
+          int q = 1;
 
           Class.forName("com.mysql.jdbc.Driver").newInstance();
           try {
@@ -42,6 +44,7 @@
               ++q;
             }
             out.println("<input type='hidden' name='test' value ='" + testName + "'>");
+            out.println("<input type='hidden' name='studentid' value ='" + studentid + "'>");
             out.println("<input type='submit' value = 'submit'>");
             out.println("</form>");
 
