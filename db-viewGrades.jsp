@@ -1,3 +1,23 @@
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> ISP Term Project</title>
+  </head>
+  <body>
+    <div id="title"> <h1 align="center"> Upload </h1> </div>
+    <div class="topnav" id="myTopnav">
+      <a href="prj.html"> Home </a>
+      <a href="main.html">Create a Test</a>
+      <a href="takeTest.html">Take Test</a>
+      <a href="viewGrades.html" class="active">View Grades</a>
+      <a href="uploadDoc.html">Upload Documents</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <p>
+
 <%@page import="java.sql.*"%>
 
 <%
@@ -11,9 +31,8 @@
 
         // Other variables
         String id = request.getParameter("id");
-				String name = request.getParameter("name");
-        String type = request.getParameter("quiz");
-        String miles = request.getParameter("grade");
+        String quiz = request.getParameter("quiz");
+        String grade = request.getParameter("grade");
         String action = request.getParameter("action");
 
 
@@ -32,14 +51,12 @@
 
         // Display table
         if (action.equals("display")) {
-            out.println("Displaying Grades");
         }
 
         // Insert data
         else if (action.equals("insert")) {
-            qs="insert into Grades (Student_ID, Student_Name) values ("+id+", '" +name+ "')";
+            qs="insert into id"+id+" (QuizName, Grade) values ('"+quiz+"', " +grade+ ")";
             stmt.executeUpdate(qs);
-            out.println(qs);
         }
 
         // // Update Data
@@ -51,23 +68,22 @@
 				//
         // Delete data
         else if (action.equals("delete")) {
-            qs= "delete from Grades where Student_ID = " + id;
+            qs= "delete from id"+id+" where QuizName = '" + quiz+ "'" ;
             stmt.executeUpdate(qs);
             out.println(qs);
         }
 
 		//Query the data
-		qs="select * from Grades";
+		qs="select * from id"+id;
 		rs=stmt.executeQuery(qs);
 
-
 		//Show results
-    out.println("<table style = 'font-weight: bold; border: 1px solid black; text-align: center'> <caption> <h2> Grades </h2> </caption>");
-		out.println("<tr> <td style = 'width: 100px; border:1px solid black'> Student ID </td> <td style = 'width: 100px;border:1px solid black'> Student Name </td> </tr>");
+    out.println("<table style = 'border: 1px solid black; text-align: center; margin-left: 50px'> <caption> <h2> Grades for "+id+" </h2> </caption>");
+		out.println("<tr style='font-weight: bold'> <td style = 'width: 100px; border:1px solid black'> Quiz Name </td> <td style = 'width: 100px;border:1px solid black'> Grade (%) </td> </tr>");
 
 		while(rs.next())
 		{
-        out.println("<tr>"+"<td style = 'border:1px solid black'>" +rs.getString("Student_ID")+"</td>" + "<td style = 'border:1px solid black'>" +rs.getString("Student_Name")+"</td></tr>");
+        out.println("<tr>"+"<td style = 'border:1px solid black'>" +rs.getString("QuizName")+"</td>" + "<td style = 'border:1px solid black'>" +rs.getString("Grade")+"</td></tr>");
 		}
         out.println("</table>");
 		rs.close();
